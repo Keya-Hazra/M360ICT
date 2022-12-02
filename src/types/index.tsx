@@ -11,27 +11,29 @@ export interface LaunchType {
 	tentative_max_precision: string;
 	tbd: boolean;
 	launch_window: number;
+
+	rocket: {
+		rocket_id: string;
+		rocket_name: string;
+		rocket_type: string;
+		first_stage: {
+			cores: [
+				{
+					core_serial: string;
+					flight: number;
+					block: null;
+					gridfins: boolean;
+					legs: boolean;
+					reused: boolean;
+					land_success: null;
+					landing_intent: boolean;
+					landing_type: null;
+					landing_vehicle: null;
+				}
+			];
+		};
+	};
 }
-// rocket: {
-// 	"rocket_id": string,
-// 	rocket_name: string,
-// 	rocket_type: string,
-// 	first_stage: {
-// 		cores: [
-// 			{
-// 				core_serial: string,
-// 				flight: number,
-// 				block: null,
-// 				gridfins: boolean,
-// 				legs: boolean,
-// 				reused: boolean,
-// 				land_success: null,
-// 				landing_intent: boolean,
-// 				landing_type: null,
-// 				landing_vehicle: null,
-// 			}
-// 		],
-// 	},
 // 	second_stage: {
 // 		block: number,
 // 		payloads: [
@@ -106,4 +108,13 @@ export interface LaunchType {
 // static_fire_date_utc: string,
 // static_fire_date_unix: number,
 // timeline: { webcast_liftoff: number },
-// crew: null,
+// crew: null
+
+
+export interface IQueryData {
+	upcoming: boolean;
+	launch_year: string;
+	launch_date_unix: number;
+	launch_date_utc: string;
+	launch_date_local: string;
+  }
